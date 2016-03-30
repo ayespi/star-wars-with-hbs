@@ -20,3 +20,19 @@ var starWarsCharacters = [
     height: "42\""
   }
 ]
+
+var charTemplate = Handlebars.compile(document.querySelector("#characterTemplate").innerHTML)
+starWarsCharacters.forEach(function(character){
+  var newDiv = document.createElement("div")
+  newDiv.className = "character"
+  newDiv.innerHTML = charTemplate(character)
+  document.querySelector("div.characters").appendChild(newDiv)
+})
+
+for (var i = 0; i < starWarsCharacters.length; i++){
+  var newDiv = document.createElement("div")
+  newDiv.className = "character"
+  newDiv.innerHTML = charTemplate(starWarsCharacters[i])
+  document.querySelector("div.characters").appendChild(newDiv)
+
+}
